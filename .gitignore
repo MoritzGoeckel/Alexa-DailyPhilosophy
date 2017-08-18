@@ -1,1 +1,3 @@
 /node_modules/*
+/philosophy_lambda/node_modules/*
+*.zip
