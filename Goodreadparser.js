@@ -3,8 +3,8 @@ var fs = require('fs');
 
 let que = new DownloadQueue(10, true);
 
-for(let i = 0; i < 47; i++){
-    que.enqueDownload("https://www.goodreads.com/quotes/tag/philosophy-of-life?page=" + i, gotResults);
+for(let i = 0; i < 100; i++){
+    que.enqueDownload("https://www.goodreads.com/quotes/tag/philosophy?page=" + i, gotResults); //-of-life
 }
 
 function gotResults(url, error, response, html, $){
@@ -23,10 +23,10 @@ function gotResults(url, error, response, html, $){
 
             data = $(quotes[q]).first().text();
 
-            if(data.length < 500 && data.length > 10){
+            if(data.length < 500 && data.length > 30){
                 let line = clean(data);
                 console.log(line)
-                fs.appendFileSync('goodreadquotes_life.txt', line + "\n");
+                fs.appendFileSync('goodreadquotes_philo.txt', line + "\n");
             }
         }
     }
