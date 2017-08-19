@@ -24,10 +24,10 @@ const handlers = {
         let rand = Math.random();
         let max = quotes.length - 1;
         //rand + " " + max + " " + 
-        this.emit(':tellWithCard', quotes[parseInt(rand * max)].replace(".", ". "));
+        this.emit(':tellWithCard', quotes[parseInt(rand * max)].replace(".", ". ").replace(":", ": ").replace(",", ", "));
     },
     'AMAZON.HelpIntent': function () {
-        this.emit(':ask', "This is the help part");
+        this.emit(':ask', "ask me for a quote and i will give you some nurture for your mind and fullfill your philosophical needs");
     },
     'AMAZON.CancelIntent': function () {
         this.emit(':tell', this.t('STOP_MESSAGE'));
